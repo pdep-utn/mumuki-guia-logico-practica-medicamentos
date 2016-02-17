@@ -1,4 +1,10 @@
 ---
 expectations:
-- binding: medicamentoUtil
+- binding: sirveParaCurar
   inspection: HasBinding
+- binding: sirveParaPotenciar
+  inspection: HasBinding
+- binding: medicamentoUtil
+  inspection: HasUsage:sirveParaCurar
+- binding: medicamentoUtil
+  inspection: HasUsage:sirveParaPotenciar

@@ -1,5 +1,5 @@
 El centro de manejo de enfermedades de Rohan quiere analizar la relación de los rohirrim 
-(habitantes de este simpático país) con los medicamentos. Para eso armó unabase de conocimientos con estos predicados
+(habitantes de este simpático país) con los medicamentos. Para eso armó unabase de conocimientos con estos predicados:
 
 ```prolog
 incluye(Medicamento, Droga).

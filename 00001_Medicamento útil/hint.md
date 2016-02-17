@@ -16,3 +16,5 @@ actividad(Persona, Fecha, Actividad).
   % Fecha :: fecha(Dia, Mes, Anio).
   % Actividad :: compro(Medicamento, Farmacia) o preguntoPor(Medicamento, Farmacia)
 ```
+
+Además podés hacer predicados auxiliares. Sería una buena elección hacer `sirveParaCurar` y `sirveParaPotenciar`, que pueden relacionar a una persona y un medicamento

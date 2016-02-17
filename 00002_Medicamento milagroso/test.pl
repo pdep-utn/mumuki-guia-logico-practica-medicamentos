@@ -1,3 +1,8 @@
-test('Medicamento Milagroso') :-
-  setof((P, M), medicamentoMilagroso(P, M), List),
-  assertion(List == [(eomund, trancosin), (eowyn, trancosin)]).
+test('Medicamento Milagroso', [nondet]) :-
+  medicamentoMilagroso(eowyn,trancosin),
+  medicamentoMilagroso(eomund,trancosin),
+  not(medicamentoMilagroso(eomer, _)),
+  not((
+    medicamentoMilagroso(_, Med), 
+    Med \= trancosin
+  )).

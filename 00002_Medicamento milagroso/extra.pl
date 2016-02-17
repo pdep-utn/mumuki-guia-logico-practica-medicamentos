@@ -29,12 +29,8 @@ medicamentoUtil(Per, Med) :-
   not(sirveParaPotenciar(Med, Enf)).
 
 sirveParaCurar(Med, Enf) :- 
-  sirveParaCurar(_, Med, _, Enf).
-
-sirveParaCurar(Per, Med, Droga, Enf) :-
   incluye(Med, Droga),
-  efecto(Droga, cura(Enf)),
-  estaEnfermo(Per, Enf).
+  efecto(Droga, cura(Enf)).
   
 sirveParaPotenciar(Med, Enf) :-
   incluye(Med, Droga),

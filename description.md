@@ -1,10 +1,10 @@
 El centro de manejo de enfermedades de Rohan quiere analizar la relación de los rohirrim 
 (habitantes de este simpático país) con los medicamentos. Para eso armó unabase de conocimientos con estos predicados
 
-```haskell
+```prolog
 incluye(Medicamento, Droga).
-  %! indica la composiciónn de cada medicamento;
-  %! hay medicamentos que incluyen más de una droga.
+  %! indica la composicion de cada medicamento;
+  %! hay medicamentos que incluyen mas de una droga.
   
 efecto(Droga, Efecto).
   %! cada droga puede servir para curar una o varias enfermedades, pero también puede potenciar otras enfermedades; 

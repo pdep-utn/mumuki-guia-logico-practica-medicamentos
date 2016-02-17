@@ -8,3 +8,5 @@ expectations:
   inspection: HasUsage:sirveParaCurar
 - binding: medicamentoUtil
   inspection: HasUsage:sirveParaPotenciar
+- binding: medicamentoUtil
+  inspection: HasBinding

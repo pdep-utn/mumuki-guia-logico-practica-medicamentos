@@ -15,9 +15,9 @@ estaEnfermo(eomer, heridaDeOrco). % eomer es varon
 estaEnfermo(eomer, deseoDePoder).
 estaEnfermo(eowyn, heridaDeOrco). % eowyn es mujer
 estaEnfermo(eomund, desazon).
+estaEnfermo(fede, deseoDePoder).
 
-padre(eomund, eomer).
-
+actividad(fede,  fecha(15,6,3014), compro(trancosin, laGondoriana)).
 actividad(eomer, fecha(15,6,3014), compro(trancosin, laGondoriana)).
 actividad(eomer, fecha(15,8,3014), preguntoPor(sanaSam, laGondoriana)).
 actividad(eowyn, fecha(14,9,3014), preguntoPor(sanaSam, laGondoriana)).
@@ -36,9 +36,13 @@ sirveParaCurar(Per, Med, Droga, Enf) :-
   efecto(Droga, cura(Enf)),
   estaEnfermo(Per, Enf).
   
-sirveParaPotenciar(Med, Enf) :-
+sirveParaPotenciar(Per, Med, Droga, Enf) :-
   incluye(Med, Droga),
-  efecto(Droga, potencia(Enf)).
+  efecto(Droga, potencia(Enf)),
+  estaEnfermo(Per, Enf).
+  
+sirveParaPotenciar(Med, Enf) :-
+  sirveParaPotenciar(_, Med, _, Enf).
 
 medicamentoMilagroso(Per, Med) :-
   estaEnfermo(Per, _), incluye(Med, _),

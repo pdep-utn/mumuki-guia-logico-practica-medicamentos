@@ -1,2 +1,0 @@
-medicamentoUtil(Persona, Medicamento) :-
-  % Completar.

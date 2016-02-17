@@ -1,8 +1,10 @@
+vende(laGondoriana, aerotina, 9).
 vende(laGondoriana, sanaSam, 35).
 vende(laGondoriana, trancosin, 35).
 
 incluye(trancosin, athelas).
 incluye(trancosin, cenizaBoromireana).
+incluye(aerotina, loratadina).
 
 efecto(athelas, cura(desazon)).
 efecto(athelas, cura(heridaDeOrco)).
@@ -26,9 +28,13 @@ medicamentoUtil(Per, Med) :-
   sirveParaCurar(Med, Enf),
   not(sirveParaPotenciar(Med, Enf)).
 
-sirveParaCurar(Med, Enf) :-
+sirveParaCurar(Med, Enf) :- 
+  sirveParaCurar(_, Med, _, Enf).
+
+sirveParaCurar(Per, Med, Droga, Enf) :-
   incluye(Med, Droga),
-  efecto(Droga, cura(Enf)).
+  efecto(Droga, cura(Enf)),
+  estaEnfermo(Per, Enf).
   
 sirveParaPotenciar(Med, Enf) :-
   incluye(Med, Droga),

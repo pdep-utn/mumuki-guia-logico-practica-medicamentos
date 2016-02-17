@@ -1,4 +1,4 @@
 ---
 expectations:
-- binding: gastoTotal
+- binding: zafoDe
   inspection: HasBinding

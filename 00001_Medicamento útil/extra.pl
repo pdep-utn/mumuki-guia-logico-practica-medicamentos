@@ -1,8 +1,10 @@
+vende(laGondoriana, aerotina, 9).
 vende(laGondoriana, sanaSam, 35).
 vende(laGondoriana, trancosin, 35).
 
 incluye(trancosin, athelas).
 incluye(trancosin, cenizaBoromireana).
+incluye(aerotina, loratadina).
 
 efecto(athelas, cura(desazon)).
 efecto(athelas, cura(heridaDeOrco)).

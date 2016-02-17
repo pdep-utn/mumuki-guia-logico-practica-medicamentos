@@ -6,7 +6,6 @@ incluye(trancosin, cenizaBoromireana).
 
 efecto(athelas, cura(desazon)).
 efecto(athelas, cura(heridaDeOrco)).
-
 efecto(cenizaBoromireana, cura(gripeA)).
 efecto(cenizaBoromireana, potencia(deseoDePoder)).
 

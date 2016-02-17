@@ -1,0 +1,6 @@
+---
+expectations:
+- binding: tipoActivoEn
+  inspection: HasBinding
+- binding: diaProductivo
+  inspection: HasBinding

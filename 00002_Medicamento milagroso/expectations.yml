@@ -1,0 +1,8 @@
+---
+expectations:
+- binding: medicamentoMilagroso
+  inspection: HasBinding
+- binding: medicamentoMilagroso
+  inspection: HasUsage:sirveParaCurar
+- binding: medicamentoMilagroso
+  inspection: HasUsage:sirveParaPotenciar

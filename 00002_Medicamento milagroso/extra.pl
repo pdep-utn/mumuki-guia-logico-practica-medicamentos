@@ -1,7 +1,35 @@
-medicamentoMilagroso(Per, Med) :-
-  estaEnfermo(Per, _), incluye(Med, _),
-  forall(estaEnfermo(Per, Enf), sirveParaCurarYNoPotencia(Med, Enf)).
+vende(laGondoriana, sanaSam, 35).
+vende(laGondoriana, trancosin, 35).
 
-sirveParaCurarYNoPotencia(Med, Enf) :-
+incluye(trancosin, athelas).
+incluye(trancosin, cenizaBoromireana).
+
+efecto(athelas, cura(desazon)).
+efecto(athelas, cura(heridaDeOrco)).
+efecto(cenizaBoromireana, cura(gripeA)).
+efecto(cenizaBoromireana, potencia(deseoDePoder)).
+
+estaEnfermo(eomer, heridaDeOrco). % eomer es varon
+estaEnfermo(eomer, deseoDePoder).
+estaEnfermo(eowyn, heridaDeOrco). % eowyn es mujer
+estaEnfermo(eomund, desazon).
+
+padre(eomund, eomer).
+
+actividad(eomer, fecha(15,6,3014), compro(trancosin, laGondoriana)).
+actividad(eomer, fecha(15,8,3014), preguntoPor(sanaSam, laGondoriana)).
+actividad(eowyn, fecha(14,9,3014), preguntoPor(sanaSam, laGondoriana)).
+
+
+medicamentoUtil(Per, Med) :-
+  estaEnfermo(Per, Enf),
   sirveParaCurar(Med, Enf),
   not(sirveParaPotenciar(Med, Enf)).
+
+sirveParaCurar(Med, Enf) :-
+  incluye(Med, Droga),
+  efecto(Droga, cura(Enf)).
+  
+sirveParaPotenciar(Med, Enf) :-
+  incluye(Med, Droga),
+  efecto(Droga, potencia(Enf)).

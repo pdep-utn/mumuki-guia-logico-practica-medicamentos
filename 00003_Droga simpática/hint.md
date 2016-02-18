@@ -12,9 +12,4 @@ vende(Farmacia, Medicamento, Precio).
 
 estaEnfermo(Persona, Enfermedad).
 
-padre(Padre, Hijo).
-
-actividad(Persona, Fecha, Actividad).
-  % Fecha :: fecha(Dia, Mes, Anio).
-  % Actividad :: compro(Medicamento, Farmacia) o preguntoPor(Medicamento, Farmacia)
 ```

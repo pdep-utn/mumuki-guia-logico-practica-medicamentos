@@ -2,3 +2,5 @@
 expectations:
 - binding: drogaSimpatica
   inspection: HasBinding
+- binding: drogaSimpatica
+  inspection: HasFindall

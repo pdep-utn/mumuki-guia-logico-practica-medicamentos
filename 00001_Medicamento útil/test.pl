@@ -1,11 +1,15 @@
-test(trancosin_medicamento_util_para_eomer, [nondet]) :-
-  medicamentoUtil(eomer,trancosin).
-
 test(trancosin_medicamento_util_para_eowyn, [nondet]) :-
-  medicamentoUtil(eowyn,trancosin).
+  medicamentoUtil(eowyn, trancosin).
 
 test(trancosin_medicamento_util_para_eomund, [nondet]) :-
-  medicamentoUtil(eomund,trancosin).
-  
-test(solo_trancosin_es_un_medicamento_util, [fail]) :-
-  medicamentoUtil(_, Med), Med \= trancosin.
+  medicamentoUtil(eomund, trancosin).
+
+test(medicamento_util_es_inversible_para_la_persona, [true(Persona = eowyn), nondet]) :-
+  medicamentoUtil(Persona, _).
+
+test(medicamento_util_es_inversible_para_el_medicamento, [true(Medicamento = trancosin), nondet]) :-
+  medicamentoUtil(_, Medicamento).
+
+test(medicamento_util_es_inversible_para_el_medicamento, [fail]) :-
+  medicamentoUtil(eomer, _).
+

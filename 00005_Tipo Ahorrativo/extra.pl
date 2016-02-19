@@ -31,10 +31,7 @@ actividad(eomer, fecha(15,6,3014), preguntoPor(trancosin, farmacity)).
 actividad(eomer, fecha(15,6,3014), preguntoPor(trancosin, drAhorro)).
 actividad(eomer, fecha(15,6,3014), preguntoPor(trancosin, drSimi)).
 
-actividad(eowyn, fecha(15,6,3014), preguntoPor(trancosin, laGondoriana)).
 actividad(eowyn, fecha(15,6,3014), compro(trancosin, farmacity)).
-actividad(eowyn, fecha(15,6,3014), preguntoPor(trancosin, drAhorro)).
-actividad(eowyn, fecha(15,6,3014), preguntoPor(trancosin, drSimi)).
 
 actividad(eomund, fecha(15,6,3014), compro(trancosin, laGondoriana)).
 actividad(eomund, fecha(15,6,3014), preguntoPor(trancosin, farmacity)).

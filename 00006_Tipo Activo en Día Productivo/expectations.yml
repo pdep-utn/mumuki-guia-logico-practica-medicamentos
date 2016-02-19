@@ -4,3 +4,9 @@ expectations:
   inspection: HasBinding
 - binding: diaProductivo
   inspection: HasBinding
+- binding: tipoActivoEn
+  inspection: Not:HasUsage:compro
+- binding: tipoActivoEn
+  inspection: Not:HasUsage:preguntoPor
+- binding: tipoActivoEn
+  inspection: HasUsage:actividad

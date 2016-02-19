@@ -1,51 +1,62 @@
-vende(laGondoriana, aerotina, 9).
-vende(laGondoriana, sanaSam, 35).
-vende(laGondoriana, trancosin, 35).
-
 incluye(trancosin, athelas).
 incluye(trancosin, cenizaBoromireana).
 incluye(aerotina, loratadina).
+incluye(bayaspirina, aspirina).
 
 efecto(athelas, cura(desazon)).
 efecto(athelas, cura(heridaDeOrco)).
+efecto(athelas, cura(suenio)).
+efecto(athelas, cura(asma)).
 efecto(cenizaBoromireana, cura(gripeA)).
 efecto(cenizaBoromireana, potencia(deseoDePoder)).
+efecto(loratadina, potencia(gripeA)).
+efecto(loratadina, potencia(heridaDeOrco)).
+efecto(loratadina, potencia(deseoDePoder)).
 
-estaEnfermo(eomer, heridaDeOrco). % eomer es varon
+estaEnfermo(eomer, heridaDeOrco).
 estaEnfermo(eomer, deseoDePoder).
-estaEnfermo(eowyn, heridaDeOrco). % eowyn es mujer
+estaEnfermo(eomer, gripeA).
+estaEnfermo(eowyn, heridaDeOrco).
+estaEnfermo(eowyn, desazon).
 estaEnfermo(eomund, desazon).
-estaEnfermo(fede, deseoDePoder).
+estaEnfermo(eomund, deseoDePoder).
 
-actividad(fede,  fecha(15,6,3014), compro(trancosin, laGondoriana)).
+vende(laGondoriana, trancosin, 30).
+vende(farmacity, trancosin, 33).
+vende(drAhorro, trancosin, 35).
+vende(drSimi, trancosin, 32).
+
 actividad(eomer, fecha(15,6,3014), compro(trancosin, laGondoriana)).
-actividad(eomer, fecha(15,8,3014), preguntoPor(sanaSam, laGondoriana)).
-actividad(eowyn, fecha(14,9,3014), preguntoPor(sanaSam, laGondoriana)).
+actividad(eomer, fecha(15,6,3014), preguntoPor(trancosin, farmacity)).
+actividad(eomer, fecha(15,6,3014), preguntoPor(trancosin, drAhorro)).
+actividad(eomer, fecha(15,6,3014), preguntoPor(trancosin, drSimi)).
 
+actividad(eowyn, fecha(15,6,3014), preguntoPor(trancosin, laGondoriana)).
+actividad(eowyn, fecha(15,6,3014), compro(trancosin, farmacity)).
+actividad(eowyn, fecha(15,6,3014), preguntoPor(trancosin, drAhorro)).
+actividad(eowyn, fecha(15,6,3014), preguntoPor(trancosin, drSimi)).
+
+actividad(eomund, fecha(15,6,3014), compro(trancosin, laGondoriana)).
+actividad(eomund, fecha(15,6,3014), preguntoPor(trancosin, farmacity)).
+actividad(eomund, fecha(15,6,3014), preguntoPor(trancosin, drAhorro)).
+actividad(eomund, fecha(15,6,3014), preguntoPor(trancosin, drSimi)).
 
 medicamentoUtil(Per, Med) :-
   estaEnfermo(Per, Enf),
   sirveParaCurar(Med, Enf),
-  not(sirveParaPotenciar(Med, Enf)).
+  forall(estaEnfermo(Per, Enf2), not(sirveParaPotenciar(Med, Enf2))).
 
-sirveParaCurar(Med, Enf) :- 
-  sirveParaCurar(_, Med, _, Enf).
-
-sirveParaCurar(Per, Med, Droga, Enf) :-
+sirveParaCurar(Med, Enf) :-
   incluye(Med, Droga),
-  efecto(Droga, cura(Enf)),
-  estaEnfermo(Per, Enf).
-  
-sirveParaPotenciar(Per, Med, Droga, Enf) :-
-  incluye(Med, Droga),
-  efecto(Droga, potencia(Enf)),
-  estaEnfermo(Per, Enf).
+  efecto(Droga, cura(Enf)).
   
 sirveParaPotenciar(Med, Enf) :-
-  sirveParaPotenciar(_, Med, _, Enf).
+  incluye(Med, Droga),
+  efecto(Droga, potencia(Enf)).
 
 medicamentoMilagroso(Per, Med) :-
-  estaEnfermo(Per, _), incluye(Med, _),
+  estaEnfermo(Per, _),
+  incluye(Med, _),
   forall(estaEnfermo(Per, Enf), sirveParaCurarYNoPotencia(Med, Enf)).
 
 sirveParaCurarYNoPotencia(Med, Enf) :-
@@ -53,27 +64,29 @@ sirveParaCurarYNoPotencia(Med, Enf) :-
   not(sirveParaPotenciar(Med, Enf)).
 
 drogaSimpatica(Droga) :-
-  findall(Enf, efecto(Droga, cura(Enf)), Enfs),
-  length(Enfs, Cant),
+  efecto(Droga, _),
+  findall(Droga, efecto(Droga, cura(_)), Drogas),
+  length(Drogas, Cant),
+  not(efecto(Droga, potencia(_))),
   Cant >= 4.
 
 drogaSimpatica(Droga) :-
-  sirveParaCurar(eomer, _, Droga, EnfEomer),
-  sirveParaCurar(eowyn, _, Droga, EnfEowyn),
-  EnfEomer \= EnfEowyn.
+  efecto(Droga, cura(Eowyn)),
+  efecto(Droga, cura(Eomer)),
+  Eowyn \= Eomer.
 
 drogaSimpatica(Droga) :-
   incluye(Med, Droga),
-  vende(Farm, Med, _),
-  not((
-    vende(Farm, Med, Precio),
-    Precio > 10
-  )).
+  vende(_, Med, _),
+  forall(vende(_, Med, Precio), not(Precio > 10)).
 
 tipoSuicida(Per) :-
   actividad(Per, _, compro(Med, _)),
+  estaEnfermo(Per, OEnf),
+  incluye(Med, Droga),
+  efecto(Droga, potencia(OEnf)),
   forall(
     estaEnfermo(Per, Enf), 
-    not( sirveParaCurar(Per, Med, _, Enf) )
-  ),
-  sirveParaPotenciar(Per, Med, _, _).
+    not( sirveParaCurar(Med, Enf) )
+  ).
+

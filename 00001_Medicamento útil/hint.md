@@ -13,7 +13,7 @@ estaEnfermo(Persona, Enfermedad).
 padre(Padre, Hijo).
 
 actividad(Persona, Fecha, Actividad).
-  % Fecha :: fecha(Dia, Mes, Anio).
+  % Fecha :: fecha(Dia, Mes, Año).
   % Actividad :: compro(Medicamento, Farmacia) o preguntoPor(Medicamento, Farmacia)
 ```
 

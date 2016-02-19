@@ -20,4 +20,4 @@ estaEnfermo(Persona, Enfermedad).
 ```
 
 **Nota:**
-Eomer y Eowyn son individuos que ya se encuentran en de nuestra base de conocimiento (eomer y eowyn).
+Eomer y Eowyn son individuos que ya se encuentran en nuestra base de conocimiento (eomer y eowyn).

@@ -1,1 +1,1 @@
-No te parece que estás repitiendo algo de lógica con sirve para potenciar?... Sería bueno que lo sepas :smile:
+No te parece que estás **repitiendo algo de lógica** con `sirveParaPotenciar/2`?... Sería bueno que lo sepas :P

@@ -9,6 +9,9 @@ efecto(athelas, cura(suenio)).
 efecto(athelas, cura(asma)).
 efecto(cenizaBoromireana, cura(gripeA)).
 efecto(cenizaBoromireana, potencia(deseoDePoder)).
+efecto(loratadina, potencia(gripeA)).
+efecto(loratadina, potencia(heridaDeOrco)).
+efecto(loratadina, potencia(deseoDePoder)).
 
 estaEnfermo(eomer, heridaDeOrco).
 estaEnfermo(eomer, deseoDePoder).
@@ -30,6 +33,7 @@ actividad(eomer, fecha(15,6,3014), compro(trancosin, laGondoriana)).
 actividad(eomer, fecha(15,8,3014), preguntoPor(sanaSam, laGondoriana)).
 actividad(eowyn, fecha(14,9,3014), preguntoPor(sanaSam, laGondoriana)).
 actividad(eowyn, fecha(14,9,3014), compro(trncosin, laGondoriana)).
+actividad(eowyn, fecha(14,9,3014), compro(aerotina, laGondoriana)).
 
 medicamentoUtil(Per, Med) :-
   estaEnfermo(Per, Enf),

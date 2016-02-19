@@ -10,5 +10,3 @@ expectations:
   inspection: Not:HasUsage:preguntoPor
 - binding: tipoActivoEn
   inspection: HasUsage:actividad
-- binding: compro
-  inspection: HasBinding

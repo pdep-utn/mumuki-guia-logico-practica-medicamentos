@@ -26,15 +26,21 @@ vende(farmacity, trancosin, 33).
 vende(drAhorro, trancosin, 35).
 vende(drSimi, trancosin, 32).
 
-actividad(eomer, fecha(1,7,3014), compro(trancosin, laGondoriana)).
-actividad(eomer, fecha(31,6,3014), preguntoPor(trancosin, farmacity)).
-actividad(eomer, fecha(30,6,3014), preguntoPor(trancosin, drAhorro)).
-actividad(eomer, fecha(29,6,3014), preguntoPor(trancosin, drSimi)).
+actividad(eowyn, fecha(16,3,3014), compro(trancosin, laGondoriana)).
+actividad(eowyn, fecha(16,3,3014), preguntoPor(trancosin, farmacity)).
+actividad(eowyn, fecha(17,3,3014), preguntoPor(trancosin, drAhorro)).
+actividad(eowyn, fecha(17,3,3014), preguntoPor(trancosin, drSimi)).
 
-actividad(eomund, fecha(4,8,3014), compro(trancosin, laGondoriana)).
-actividad(eomund, fecha(1,8,3014), preguntoPor(trancosin, farmacity)).
-actividad(eomund, fecha(2,8,3014), preguntoPor(trancosin, drAhorro)).
-actividad(eomund, fecha(3,8,3014), preguntoPor(trancosin, drSimi)).
+actividad(eomund, fecha(17,3,3014), compro(trancosin, laGondoriana)).
+actividad(eomund, fecha(18,3,3014), preguntoPor(trancosin, farmacity)).
+actividad(eomund, fecha(20,4,3014), preguntoPor(trancosin, drAhorro)).
+actividad(eomund, fecha(21,5,3014), preguntoPor(trancosin, drSimi)).
+
+/*
+
+padre(eomund,eomer).
+
+*/
 
 /* Punto 1 */
 medicamentoUtil(Per, Med) :-
@@ -100,4 +106,3 @@ tipoAhorrativo(Pers) :-
 preguntoEnOtraFarmaciaQueLoCobraMasCaro(Pers, Medicamento, Farmacia) :-
   actividad(Pers, _, preguntoPor(Medicamento, Farmacia2)),
   Farmacia \= Farmacia2.
-  

@@ -2,3 +2,7 @@
 expectations:
 - binding: zafoDe
   inspection: HasBinding
+- binding: ancestro
+  inspection: HasBinding
+- binding: ancestro
+  inspection: HasDirectRecursion

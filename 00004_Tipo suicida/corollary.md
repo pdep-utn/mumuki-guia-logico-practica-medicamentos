@@ -1,0 +1,1 @@
+No te parece que estás repitiendo algo de lógica con sirve para potenciar?... Sería bueno que lo sepas :smile:

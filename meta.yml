@@ -3,6 +3,7 @@ name: Práctica Medicamentos
 locale: es
 type: practice
 beta: false
+teacher_info: 
 language: prolog
 id_format: '%05d'
 order:
